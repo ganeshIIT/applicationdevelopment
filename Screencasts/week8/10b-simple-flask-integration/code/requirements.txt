@@ -1,0 +1,6 @@
+Flask==2.0.1
+Flask-SQLAlchemy==2.5.1
+flask-security-too
+email_validator
+bcrypt
+flask_restful

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic-Tac-Toe</title>
+        <style>
+            .b {
+                background-color: lightgrey;
+            }
+            .x .o {
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+        {% if res == 2 %} 
+        <h1>What a boring draw...</h1>
+        {% else %} 
+        {% set w = ['o', 'b', 'x'][winner+1] %}
+        <h1>Congratulations <img src="/assets/{{w}}.png">!</h1>
+        {% endif %} 
+        <table border="2px">
+            {% for i in range(9) %}
+                {% set r = i // 3 %}
+                {% set c = i %  3 %}
+                {% set e = board[i] %}
+                {% set spclass = ['o', 'b', 'x'][e+1] %}
+                {% if c == 0 %}
+                <tr>
+                {% endif %}
+                <td class="{{spclass}}">
+                    <img src="/assets/{{spclass}}.png">
+                </td>
+                {% if c == 2 %}
+            </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+        <a href="/new">Play again</a>
+    </body>
+</html>
